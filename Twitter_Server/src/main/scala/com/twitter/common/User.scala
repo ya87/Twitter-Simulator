@@ -1,0 +1,34 @@
+package com.twitter.common
+
+import java.util.concurrent.ConcurrentLinkedQueue
+
+//import scala.collection.immutable.Queue
+
+//import scala.collection.mutable.Queue
+
+
+case class User(id: Int) extends Serializable {
+  var active: Boolean = false
+  //var screenName: String = "1"
+  //var name: String = "1"
+  //var gender: String = "1"
+  //var age: Int = 1
+  //var country: String = "1"
+  //var continent: String = "1"
+  //var description: String = "1"
+  //var createdAt = new Date() //timestamp
+  //var tweetCount: Int = 1 //The number of tweets (including retweets) issued by the user. 
+  //var friends: List[String] = null
+  var numTweets: Int = 0 //this will give the total number of tweets posted by this user, userTimeline.size will not give the correct answer as we are keeping only top 100 tweets
+  var followers: List[Int] = null //list of people following this user
+  var following: List[Int] = null //list of people this user is following
+  var userTimeline: ConcurrentLinkedQueue[String] = null //list of tweet ids on user timeline
+  var homeTimeline: ConcurrentLinkedQueue[String] = null //list of tweet ids on home timeline
+  var userTimelineSize: Int = 0 //helps to check queue overflow
+  var homeTimelineSize: Int = 0 //helps to check queue overflow
+  //var notifications: Queue[String] = null //list of notifications
+  var mentions: ConcurrentLinkedQueue[String] = null //list of tweet ids in which this user was mentioned using @userId
+  //var directMessages: Queue[String] = null //list of tweetIds which are directly sent to this user from his following list or sent by this user to users in his follower's list
+
+  //var favoritesCount: Int = 1 //The number of tweets this user has favorited in the account lifetime
+}
